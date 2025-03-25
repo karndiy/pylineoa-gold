@@ -101,6 +101,12 @@ def run_schedule():
         schedule.run_pending()
         time.sleep(1)
 
+
+# Webhook Route
+@app.route("/")
+def index():
+    return "Hello, World!"
+
 # Webhook Route
 @app.route("/webhook", methods=['POST'])
 def webhook():
@@ -158,4 +164,4 @@ if __name__ == "__main__":
     scheduler_thread.start()
     
     # Start Flask app
-    app.run(port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
